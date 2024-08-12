@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <h2 >Gestor de Tareas</h2>
+  
+    <div>
+      <input class="me-3 mb-3 form-control" type="text" placeholder="Nueva tarea" #newTaskInput 
+      (keydown.enter)="addTask(newTaskInput.value); newTaskInput.value=''" />
+      <button class="btn btn-success" (click)="addTask(newTaskInput.value); newTaskInput.value=''">Añadir Tarea</button>
+    </div>
+  <hr>
+    <table>
+      <thead>
+        <tr>
+          <th>Tarea</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+            
+          <td>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="task.completed"
+                id="flexCheckDefault">
+                <input [(ngModel)]="task.name" />
+            </div>
+            
+          </td>
+          <td>
+            <button (click)="updateTask(task.id, task.name)" class="btn btn-info">Actualizar</button>
+            
+            <button (click)="deleteTask(task.id)" [disabled]="task.completed" type="button" class="btn-close" aria-label="Close"></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  

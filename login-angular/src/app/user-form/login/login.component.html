@@ -1,0 +1,19 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-custom">
+    <div class="mb-3 row"> 
+        <label for="name" class="col-sm-2 col-form-label">Usuario:</label>
+        <div>
+            <input type="text" class="form-control" id="email" formControlName="email">
+            
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="password" class="col-sm-2 col-form-label">Contraseña:</label>
+        <div>
+            <input type="password" class="form-control" id="password" formControlName="password">
+            
+        </div>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary me-md-2" type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+    </div>
+</form>
